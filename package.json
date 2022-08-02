@@ -1,7 +1,7 @@
 {
   "name": "movie-capstone-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "-This project displays a movie-list built using Webpack and JavaScript modules. A user can like or comment on a specific movie. Additionally, they can see the description of each movie when they click on it.",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -37,8 +37,10 @@
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.21.0",
+    "web-cli": "^1.0.0-prealpha",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.3"
-  }
+  },
+  "main": "babel.config.js"
 }
