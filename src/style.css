@@ -1,5 +1,47 @@
-h1 {
-  color: blue;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'poppins', sans-serif;
+}
+.nav-section {
+  background-color: #8b0000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 85px;
+}
+
+.movie-logo {
+  margin-left: 67px;
+  border: 1px solid #fff;
+  background-color: #000;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.nav-section a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.list-group-nav {
+  display: flex;
+  gap: 24px;
+  margin-right: 12%;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.list-group-nav li a {
+  text-decoration: none;
 }
 
 .watchlist {
