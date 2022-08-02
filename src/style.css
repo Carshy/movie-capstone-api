@@ -1,3 +1,45 @@
 h1 {
   color: blue;
 }
+
+.watchlist {
+  display: grid;
+  grid-template: 300px 300px 300px/auto auto auto;
+  gap: 20px;
+}
+
+.card-image {
+  background-image: url('./images/Blacklist.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image1 {
+  background-image: url('./images/Brooklyn-99.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image2 {
+  background-image: url('./images/Django\ Unchained.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image3 {
+  background-image: url('./images/dr-strange.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image4 {
+  background-image: url('./images/GOT.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image5 {
+  background-image: url('./images/originals.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
