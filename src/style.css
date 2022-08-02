@@ -4,7 +4,7 @@ h1 {
 
 .watchlist {
   display: grid;
-  grid-template: 300px 300px 300px/auto auto auto auto auto;
+  grid-template: 200px 200px 200px/auto auto auto auto auto;
   gap: 20px;
 }
 
