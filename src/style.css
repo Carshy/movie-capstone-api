@@ -46,7 +46,7 @@ body {
 
 .watchlist {
   display: grid;
-  grid-template: 300px 300px 300px/auto auto auto;
+  grid-template: 200px 200px 200px/auto auto auto auto auto;
   gap: 20px;
 }
 
@@ -82,6 +82,60 @@ body {
 
 .card-image5 {
   background-image: url('./images/originals.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image6 {
+  background-image: url('./images/breaking-bad.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image7 {
+  background-image: url('./images/gotham-city.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image8 {
+  background-image: url('./images/masuti.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image9 {
+  background-image: url('./images/pb.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image10 {
+  background-image: url('./images/Scandal.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image11 {
+  background-image: url('./images/Wakanda-forever.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image12 {
+  background-image: url('./images/Brooklyn-99.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image13 {
+  background-image: url('./images/Friends.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image14 {
+  background-image: url('./images/rick-and-morty.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
