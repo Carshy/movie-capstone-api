@@ -1,6 +1,10 @@
 import './style.css';
-import { fetchList, showList } from './modules/showlist.js';
+import fetchList from './modules/showlist.js';
 
 fetchList();
-const fetchMovies = fetchList();
-showList(fetchMovies);
+// showList(fetchList());
+// console.log(showList(fetchList()));
+
+// fetchList();
+// const fetchMovies = fetchList();
+// showList(fetchMovies);
