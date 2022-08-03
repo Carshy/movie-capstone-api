@@ -162,3 +162,17 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.series-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #8b0000;
+  color: #fff;
+  width: 100%;
+  height: 67px;
+}
+
+.series-footer p {
+  margin-left: 24px;
+}
