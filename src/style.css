@@ -53,17 +53,19 @@ body {
   text-decoration: none;
 }
 
-.watchlist {
+.card-image1 {
   display: grid;
-  grid-template: 200px 200px 200px/auto auto auto auto auto;
-  gap: 100px 50px;
+  grid-template-columns: 25% 25% 25% 25%;
+  gap: 30px 10px;
+  margin-left: 3%;
 }
 
 .title {
   display: flex;
   justify-content: space-between;
-  margin-top: 95%;
-  margin-left: 24px;
+  font-size: 15px;
+  font-weight: 200;
+  width: 65%;
 }
 
 .comments {
@@ -71,94 +73,21 @@ body {
   color: #fff;
   border: 2px solid #000;
   text-align: center;
+  width: 65%;
+  padding: 10px;
 }
 
-.card-image {
-  background-image: url('./images/Blacklist.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+.series-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #8b0000;
+  color: #fff;
+  width: 100%;
+  height: 67px;
 }
 
-.card-image1 {
-  background-image: url('./images/Brooklyn-99.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image2 {
-  background-image: url('./images/Django\ Unchained.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image3 {
-  background-image: url('./images/dr-strange.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image4 {
-  background-image: url('./images/GOT.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image5 {
-  background-image: url('./images/originals.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image6 {
-  background-image: url('./images/breaking-bad.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image7 {
-  background-image: url('./images/gotham-city.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image8 {
-  background-image: url('./images/masuti.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image9 {
-  background-image: url('./images/pb.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image10 {
-  background-image: url('./images/Scandal.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image11 {
-  background-image: url('./images/Wakanda-forever.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image12 {
-  background-image: url('./images/Brooklyn-99.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image13 {
-  background-image: url('./images/Friends.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.card-image14 {
-  background-image: url('./images/rick-and-morty.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+.series-footer p {
+  margin-left: 24px;
 }
