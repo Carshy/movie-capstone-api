@@ -47,6 +47,7 @@ const showSeriesList = async () => {
     </div>
     `;
     body.append(popupList);
+    // Close button
     const close = document.querySelector('.close');
     close.addEventListener('click', () => {
       displaySeries.style.filter = 'blur(0)';
@@ -55,6 +56,7 @@ const showSeriesList = async () => {
       body.removeChild(body.lastChild);
     });
   };
+  // Comment eventlisters
   const commentBtns = document.querySelectorAll('.comments');
   commentBtns.forEach((button) => {
     button.addEventListener('click', (e) => {
