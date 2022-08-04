@@ -15,7 +15,8 @@ const postLikes = async (id) => {
     },
     body: JSON.stringify({ item_id: `${id}` }),
   });
-  const postedLikes = await response.json();
+  const postedLikes = await JSON.parse(JSON.stringify(response));
+
   return postedLikes;
 };
 export { fetchList, postLikes };
