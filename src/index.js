@@ -43,7 +43,7 @@ const showSeriesList = async () => {
     <div class='comment-section'>
     <input type='text' class='user-name' placeholder='Your name'>
     <textarea type='text' class='user-comment' placeholder='Your insights'></textarea>
-    <button type='submit'>Comment</button>
+    <button class='comment-box' type='submit'>Comment</button>
     </div>
     `;
     body.append(popupList);

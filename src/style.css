@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'poppins', sans-serif;
+  font-family: "poppins", sans-serif;
   background-color: #000;
   color: #fff;
 }
@@ -114,8 +114,12 @@ body {
   /* width: 100%; */
   /* height: 100%; */
   /* position: absolute; */
+  padding: 12px;
   background-color: #fff;
   color: #000;
+  transition: top 0.3s ease;
+  backdrop-filter: blur(6px);
+  /* background-color: rgb(31 57 255 / 65%); */
 }
 
 .popup-headers {
@@ -154,7 +158,7 @@ body {
   bottom: 0;
   opacity: 0;
   pointer-events: none;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #overlay.active {
@@ -163,20 +167,30 @@ body {
 }
 
 .series-details {
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #8b0000;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.series-details h4 {
+  font-size: 20px;
 }
 
 .series-details p {
   padding: 0 3% 0 3%;
+  opacity: none;
 }
 
 .series-attributes {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 20px;
   border: 1px solid #8b0000;
   border-radius: 10px;
   padding: 12px;
@@ -188,4 +202,28 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+}
+
+.user-name {
+  width: 210px;
+  background: none;
+  height: 40px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.user-comment {
+  width: 210px;
+  height: 80px;
+  background: none;
+  padding: 20px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.comment-box {
+  background-color: #8b0000;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
 }
