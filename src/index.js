@@ -29,7 +29,7 @@ const showSeriesList = async () => {
     <div class='image-header'>
     <img src= ${result.image.medium}>
     </div>
-    <button id='close-button'>&times;</button>
+    <span class="close-button close">&times;</span>
     </div>
     <div class='series-details'>
     <h4>${result.name}</h4>
@@ -47,18 +47,20 @@ const showSeriesList = async () => {
     </div>
     `;
     body.append(popupList);
+    const close = document.querySelector('.close');
+    close.addEventListener('click', () => {
+      displaySeries.style.filter = 'blur(0)';
+
+      const body = document.querySelector('body');
+      body.removeChild(body.lastChild);
+    });
   };
   const commentBtns = document.querySelectorAll('.comments');
   commentBtns.forEach((button) => {
     button.addEventListener('click', (e) => {
       getPopup(e.target.parentNode.id);
+      displaySeries.style.filter = 'blur(12px)';
     });
-  });
-  // close btn
-  const closeBtn = document.getElementById('close-button');
-  closeBtn.addEventListener('click', () => {
-    getPopup.classList.remove('active');
   });
 };
 document.addEventListener('DOMContentLoaded', showSeriesList);
-// comments
