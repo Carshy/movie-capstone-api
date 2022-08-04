@@ -26,15 +26,24 @@ const showSeriesList = async () => {
     const body = document.querySelector('body');
     popupList.innerHTML = `
     <div class='popup-headers'>
+    <div class='image-header'>
     <img src= ${result.image.medium}>
+    </div>
     <button id='close-button'>&times;</button>
     </div>
+    <div class='series-details'>
     <h4>${result.name}</h4>
     <p>${result.summary}</p>
+    </div>
     <div class='series-attributes'>
-    <p>${result.genres}</p>
-    <p>${result.premiered}</p>
-    <p>${result.rating.average}</p>
+    <p>Genre: (${result.genres})</p>
+    <p>Premiered on: ${result.premiered}</p>
+    <p>Ratings(${result.rating.average})</p>
+    </div>
+    <div class='comment-section'>
+    <input type='text' class='user-name' placeholder='Your name'>
+    <textarea type='text' class='user-comment' placeholder='Your insights'></textarea>
+    <button type='submit'>Comment</button>
     </div>
     `;
     body.append(popupList);
