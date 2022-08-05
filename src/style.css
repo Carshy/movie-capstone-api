@@ -68,6 +68,11 @@ body {
   width: 65%;
 }
 
+.fa-heart,
+.comments {
+  cursor: pointer;
+}
+
 .comments {
   background-color: #8b0000;
   color: #fff;

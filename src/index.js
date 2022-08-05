@@ -1,5 +1,6 @@
 import './style.css';
-import fetchList from './modules/showlist.js';
+import showSeriesList from './modules/showitem.js';
+
 
 // Loading API images in the DOM
 const showSeriesList = async () => {
