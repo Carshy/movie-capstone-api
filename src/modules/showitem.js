@@ -1,4 +1,11 @@
 import { fetchList, postLikes } from './showlist.js';
+
+const countItems = (items) => {
+  if (Array.isArray(items)) {
+    return items.length;
+  } return;
+};
+
 // Loading API images in the DOM
 const showSeriesList = async () => {
   const seriesResults = await fetchList();
@@ -18,7 +25,9 @@ const showSeriesList = async () => {
   }
 
   const displayItems = document.querySelector('.list-items1');
-  displayItems.textContent = `All Movies (${seriesEntries.length})`;
+  const length = countItems(seriesEntries);
+  displayItems.textContent = `All Movies (${length})`;
+
   const displayLikes = document.querySelectorAll('.fa-heart');
   displayLikes.forEach((like) => {
     like.addEventListener('click', (e) => {
@@ -66,9 +75,9 @@ const showSeriesList = async () => {
     // Close button
     const close = document.querySelector('.close');
     close.addEventListener('click', () => {
-    displaySeries.style.filter = 'blur(0)';
-    const body = document.querySelector('body');
-    body.removeChild(body.lastChild);
+      displaySeries.style.filter = 'blur(0)';
+      const body = document.querySelector('body');
+      body.removeChild(body.lastChild);
     });
   };
   // Comment eventlisters
@@ -80,4 +89,4 @@ const showSeriesList = async () => {
     });
   });
 };
-export default showSeriesList;
+export { showSeriesList, countItems };
