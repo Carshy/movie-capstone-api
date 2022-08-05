@@ -1,20 +1,24 @@
 import { fetchList, postLikes } from './showlist.js';
 // Loading API images in the DOM
 const showSeriesList = async () => {
-  const seriesEntries = await fetchList();
+  const seriesResults = await fetchList();
   const displaySeries = document.querySelector('.watchlist');
+  const seriesEntries = seriesResults.slice(49, 73);
   const displayItem = document.createElement('div');
-  displayItem.classList.add('card-image1');
-  for (let entry = 50; entry < 70; entry += 1) {
+  for (let entry = 0; entry < seriesEntries.length; entry += 1) {
+    displayItem.classList.add('card-image1');
     displayItem.innerHTML += `
       <div class="card-image" id= ${seriesEntries[entry].id}>
       <img class="show-image" src="${seriesEntries[entry].image.medium}" alt="${seriesEntries[entry].name}">
-      <p class="title">${seriesEntries[entry].name}  <i class="fa fa-heart"></i><span class="display" data-index="${seriesEntries[entry].index}" data-id="${seriesEntries[entry].id}"></span></p>
+      <p class="title">${seriesEntries[entry].name}  <i class="fa fa-heart"></i><span class="display" data-index="${seriesEntries[entry].index}" data-id="${seriesEntries[entry].id}">0</span></p>
       <button type="submit" class="comments">Comments</button> 
       </div> 
     `;
     displaySeries.append(displayItem);
   }
+
+  const displayItems = document.querySelector('.list-items1');
+  displayItems.textContent = `All Movies (${seriesEntries.length})`;
   const displayLikes = document.querySelectorAll('.fa-heart');
   displayLikes.forEach((like) => {
     like.addEventListener('click', (e) => {
@@ -29,5 +33,4 @@ const showSeriesList = async () => {
     likeItem.innerHTML = `${item.likes}`;
   });
 };
-
 export default showSeriesList;
