@@ -66,9 +66,9 @@ const showSeriesList = async () => {
     // Close button
     const close = document.querySelector('.close');
     close.addEventListener('click', () => {
-    displaySeries.style.filter = 'blur(0)';
-    const body = document.querySelector('body');
-    body.removeChild(body.lastChild);
+      displaySeries.style.filter = 'blur(0)';
+      const body = document.querySelector('body');
+      body.removeChild(body.lastChild);
     });
   };
   // Comment eventlisters
