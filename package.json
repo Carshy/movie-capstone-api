@@ -1,10 +1,16 @@
 {
   "name": "movie-capstone-api",
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "verbose": true,
+    "testEnvironment": "jsdom"
+  },
   "version": "1.0.0",
   "description": "-This project displays a movie-list built using Webpack and JavaScript modules. A user can like or comment on a specific movie. Additionally, they can see the description of each movie when they click on it.",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack"
@@ -32,6 +38,7 @@
     "hint": "^7.1.1",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
@@ -42,5 +49,8 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.3"
   },
-  "main": "babel.config.js"
+  "main": "babel.config.js",
+  "dependencies": {
+    "jsdom": "^20.0.0"
+  }
 }
