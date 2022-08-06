@@ -51,11 +51,11 @@ const showSeriesList = async () => {
     const body = document.querySelector('body');
     popupList.innerHTML = `
     <div class='popup-headers'>
-    <div class='image-header'>
-    <img src= ${result.image.medium}>
     </div>
     <span class="close-button close">&times;</span>
     </div>
+    <div class='image-header'>
+    <img src= ${result.image.medium}>
     <div class='series-details'>
     <h4>${result.name}</h4>
     <p>${result.summary}</p>
