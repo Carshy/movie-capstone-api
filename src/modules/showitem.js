@@ -1,4 +1,5 @@
 import { fetchList, postLikes } from './showlist.js';
+import commentCounter from './comment-counter.js';
 
 // eslint-disable-next-line consistent-return
 const countItems = (items) => {
@@ -11,7 +12,7 @@ const countItems = (items) => {
 const showSeriesList = async () => {
   const seriesResults = await fetchList();
   const displaySeries = document.querySelector('.watchlist');
-  const seriesEntries = seriesResults.slice(49, 73);
+  const seriesEntries = seriesResults.slice(73, 93);
   const displayItem = document.createElement('div');
   for (let entry = 0; entry < seriesEntries.length; entry += 1) {
     displayItem.classList.add('card-image1');
@@ -84,8 +85,9 @@ const showSeriesList = async () => {
 
     // Posting Comments Space
     const createComment = (comments) => {
+      const testCounter = commentCounter(comments);
       const commentCount = document.querySelector('.comment-title');
-      commentCount.innerHTML = `(${comments.length})`;
+      commentCount.innerHTML = `(${testCounter})`;
       const commentList = document.querySelector('.comments-holder');
       commentList.innerHTML = '';
       comments.forEach((comment) => {
