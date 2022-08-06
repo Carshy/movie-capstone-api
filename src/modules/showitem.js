@@ -63,11 +63,15 @@ const showSeriesList = async () => {
     <p>Premiered on: ${result.premiered}</p>
     <p>Ratings(${result.rating.average})</p>
     </div>
-    <div class='comment-section'>
-    <input type='text' class='user-name' placeholder='Your name'>
-    <textarea type='text' class='user-comment' placeholder='Your insights'></textarea>
-    <button class='comment-box' type='submit'>Comment</button>
+    <div class='comment-placeholder'>
+    <p>Comments<span class='comment-title'></span></p>
+    <ul class="comments-holder"></ul>
     </div>
+    <form class='comment-section' id='comment-form'>
+    <input type='text' class='user-name' id='user-name' placeholder='Your name'>
+    <textarea type='text' class='user-comment' id='add-comment' placeholder='Your insights'></textarea>
+    <button class='comment-box' id=${id} type='submit'>Comment</button>
+    </form>
     `;
     body.append(popupList);
     // Close button
@@ -77,6 +81,60 @@ const showSeriesList = async () => {
       const body = document.querySelector('body');
       body.removeChild(body.lastChild);
     });
+
+    // Posting Comments Space
+    const createComment = (comments) => {
+      const commentCount = document.querySelector('.comment-title');
+      commentCount.innerHTML = `(${comments.length})`;
+      const commentList = document.querySelector('.comments-holder');
+      commentList.innerHTML = '';
+      comments.forEach((comment) => {
+        commentList.innerHTML += `<li>${comment.creation_date}: ${comment.username}: ${comment.comment}</li>`;
+      });
+    };
+
+    const apiCommentURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/6Rsc5dWsUkxFOihStX7m/comments';
+
+    const fetchComments = async (id) => {
+      const request = new Request(`${apiCommentURL}?item_id=${id}`);
+      const response = await fetch(request);
+      if (!response.ok) {
+        throw new Error('No comments added for this movie');
+      }
+      const getComment = await response.json();
+      createComment(getComment);
+    };
+
+    // ************************************
+
+    const displayComment = async (e) => {
+      e.preventDefault();
+      const movieID = e.target;
+
+      const name = document.getElementById('user-name').value.trim();
+      const addComment = document.getElementById('add-comment').value.trim();
+      const commentForm = document.getElementById('comment-form');
+
+      if (name && addComment) {
+        const result = await fetch(apiCommentURL, {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+          body: JSON.stringify({
+            item_id: `${movieID.id}`,
+            username: `${name}`,
+            comment: `${addComment}`,
+          }),
+        });
+        commentForm.reset();
+        await result.text();
+        fetchComments(movieID.id);
+      }
+    };
+    fetchComments(id);
+    const submitComment = document.querySelector('.comment-box');
+    submitComment.addEventListener('click', displayComment);
   };
   // Comment eventlisters
   const commentBtns = document.querySelectorAll('.comments');
@@ -86,6 +144,8 @@ const showSeriesList = async () => {
       displaySeries.style.filter = 'blur(12px)';
     });
   });
+
+  // Posting comments
 };
 export { showSeriesList, countItems };
 // eslint-disable-next-line consistent-return
