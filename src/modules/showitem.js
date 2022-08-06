@@ -3,7 +3,7 @@ import { fetchList, postLikes } from './showlist.js';
 const countItems = (items) => {
   if (Array.isArray(items)) {
     return items.length;
-  } return;
+  }
 };
 
 // Loading API images in the DOM
@@ -16,8 +16,8 @@ const showSeriesList = async () => {
     displayItem.classList.add('card-image1');
     displayItem.innerHTML += `
       <div class="card-image" id= ${seriesEntries[entry].id}>
-      <img class="show-image" src="${seriesEntries[entry].image.medium}" alt="${seriesEntries[entry].name}">
-      <p class="title">${seriesEntries[entry].name}  <i class="fa fa-heart"></i><span class="display" data-index="${seriesEntries[entry].index}" data-id="${seriesEntries[entry].id}">0</span></p>
+      <img class="show-image" src="${seriesEntries[entry].image.original}" alt="${seriesEntries[entry].name}">
+      <p class="title">${seriesEntries[entry].name}  <i class="fa fa-heart"><span class="display" data-index="${seriesEntries[entry].index}" data-id="${seriesEntries[entry].id}">0</span></i></p>
       <button type="submit" class="comments">Comments</button> 
       </div> 
     `;
@@ -32,7 +32,7 @@ const showSeriesList = async () => {
   displayLikes.forEach((like) => {
     like.addEventListener('click', (e) => {
       postLikes(e.target.parentNode.parentNode.id);
-      e.target.nextSibling.textContent = parseInt(e.target.nextSibling.textContent, 10) + 1;
+      e.target.childNodes[0].textContent = parseInt(e.target.childNodes[0].textContent, 10) + 1;
     });
   });
   const likeItems = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IgKDd8EwQi9Xf3fgeQlF/likes');
@@ -50,12 +50,9 @@ const showSeriesList = async () => {
     popupList.classList.add('comment-popup');
     const body = document.querySelector('body');
     popupList.innerHTML = `
-    <div class='popup-headers'>
-    </div>
-    <span class="close-button close">&times;</span>
-    </div>
+    <p class="close-button close">&times;</p>
     <div class='image-header'>
-    <img src= ${result.image.medium}>
+    <img src= ${result.image.medium}></div>
     <div class='series-details'>
     <h4>${result.name}</h4>
     <p>${result.summary}</p>

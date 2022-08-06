@@ -8,6 +8,8 @@ body {
   font-family: 'poppins', sans-serif;
   background-color: #000;
   color: #fff;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .nav-section {
@@ -16,20 +18,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   height: 85px;
 }
 
 .movie-logo {
-  margin-left: 67px;
-  border: 1px solid #fff;
   background-color: #000;
-  padding: 16px;
+  padding: 2px;
   border-radius: 8px;
 }
 
 .movie-logo:hover {
-  padding: 12px;
+  padding: 2px;
   transition-duration: 2s;
   cursor: pointer;
 }
@@ -37,8 +36,8 @@ body {
 .nav-section a {
   color: #fff;
   text-decoration: none;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 200;
 }
 
 .list-group-nav {
@@ -54,32 +53,41 @@ body {
 }
 
 .list-items1 {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 200;
 }
 
 .card-image1 {
   display: flex;
   flex-direction: column;
   gap: 30px 0;
-  margin-left: 3%;
 }
-
-/* .card-image {
-  width: 100%;
-} */
 
 .title {
   display: flex;
   justify-content: space-between;
   font-size: 15px;
   font-weight: 200;
-  width: 60%;
-  margin-left: 15%;
+  width: 100%;
+  background-color: #000;
+}
+
+.card-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+  height: 400px;
 }
 
 .show-image {
-  margin-left: 15%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 92%;
 }
 
 .fa-heart,
@@ -90,22 +98,24 @@ body {
 .comments {
   background-color: #8b0000;
   color: #fff;
-  border: 2px solid #000;
   text-align: center;
-  width: 60%;
+  width: 100%;
   padding: 10px;
-  margin-left: 15%;
 }
 
 .close-button {
   margin-top: 0;
-  margin-left: 90%;
-  /* border: none;
-  outline: none;
-  background: none; */
+  text-align: end;
+  width: 100%;
   cursor: pointer;
   font-size: 2.25rem;
   font-weight: bold;
+}
+
+.image-bg {
+  width: 100%;
+  height: 20rem;
+  background-size: cover;
 }
 
 .image-header {
@@ -115,11 +125,11 @@ body {
 .image-header img {
   object-fit: cover;
   width: 100%;
-  height: 60vh;
+  height: 80vh;
 }
 
 .series-details {
-  display: none; 
+  display: none;
   font-size: 14px;
   flex-direction: column;
   align-items: center;
@@ -228,18 +238,6 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'poppins', sans-serif;
-    background-color: #000;
-    color: #fff;
-  }
-  
   .nav-section {
     background-color: #8b0000;
     color: #fff;
@@ -249,7 +247,7 @@ body {
     width: 100%;
     height: 85px;
   }
-  
+
   .movie-logo {
     margin-left: 67px;
     border: 1px solid #fff;
@@ -257,20 +255,20 @@ body {
     padding: 16px;
     border-radius: 8px;
   }
-  
+
   .movie-logo:hover {
     padding: 12px;
     transition-duration: 2s;
     cursor: pointer;
   }
-  
+
   .nav-section a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
   }
-  
+
   .list-group-nav {
     display: flex;
     gap: 24px;
@@ -278,64 +276,45 @@ body {
     list-style-type: none;
     text-decoration: none;
   }
-  
-  .list-group-nav li a {
-    text-decoration: none;
-  }
-  
-  .list-items1 {
-    font-size: 18px;
-    font-weight: 600;
-  }
-  
+
   .card-image1 {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px 10px;
     margin-left: 3%;
   }
-  
+
   .title {
     display: flex;
     justify-content: space-between;
     font-size: 15px;
     font-weight: 200;
-    width: 65%;
+    width: 100%;
   }
-  
+
   .fa-heart,
   .comments {
     cursor: pointer;
   }
-  
+
   .comments {
     background-color: #8b0000;
     color: #fff;
     border: 2px solid #000;
     text-align: center;
-    width: 65%;
+    width: 100%;
     padding: 10px;
   }
-  
-  .close-button {
-    margin-top: -54%;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: pointer;
-    font-size: 2.25rem;
-    font-weight: bold;
-  }
-  
+
   .image-header {
     margin: auto;
   }
-  
+
   .image-header img {
     object-fit: cover;
     width: 300px;
   }
-  
+
   .series-details {
     font-size: 14px;
     display: flex;
@@ -347,15 +326,15 @@ body {
     font-weight: 400;
     opacity: 0.8;
   }
-  
+
   .series-details h4 {
     font-size: 20px;
   }
-  
+
   .series-details p {
     padding: 0 3% 0 3%;
   }
-  
+
   .series-attributes {
     display: flex;
     justify-content: center;
@@ -365,23 +344,7 @@ body {
     padding: 12px;
     margin: 3% 10% 2% 10%;
   }
-  
-  .comment-popup {
-    position: absolute;
-    overflow-y: scroll;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #000;
-    border-radius: 10px;
-    z-index: 10;
-    width: 800px;
-    max-width: 80%;
-    padding: 12px;
-    background-color: #fff;
-    color: #000;
-  }
-  
+
   .popup-headers {
     padding: 10px 15px;
     display: flex;
@@ -389,14 +352,14 @@ body {
     align-items: center;
     padding-top: 4%;
   }
-  
+
   .comment-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
   }
-  
+
   .user-name {
     width: 210px;
     background: none;
@@ -404,7 +367,7 @@ body {
     padding: 20px;
     border-radius: 8px;
   }
-  
+
   .user-comment {
     width: 210px;
     height: 80px;
@@ -413,7 +376,7 @@ body {
     border-radius: 8px;
     outline: none;
   }
-  
+
   .comment-box {
     background-color: #8b0000;
     color: #fff;
@@ -421,7 +384,7 @@ body {
     border-radius: 8px;
     cursor: pointer;
   }
-  
+
   .series-footer {
     display: flex;
     flex-direction: row;
@@ -433,11 +396,11 @@ body {
     width: 100%;
     height: 67px;
   }
-  
+
   .series-footer p {
     margin-left: 24px;
   }
-  
+
   .logo {
     background-image: url('./images/c-s.jpg');
     background-repeat: no-repeat;

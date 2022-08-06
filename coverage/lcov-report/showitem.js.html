@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">9.09% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/45</span>
+                <span class='fraction'>4/44</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.36% </span>
+                <span class="strong">9.3% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/44</span>
+                <span class='fraction'>4/43</span>
             </div>
         
             
@@ -152,19 +152,16 @@
 <a name='L87'></a><a href='#L87'>87</a>
 <a name='L88'></a><a href='#L88'>88</a>
 <a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a>
-<a name='L93'></a><a href='#L93'>93</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L90'></a><a href='#L90'>90</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -207,9 +204,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -252,7 +246,7 @@
 const countItems = (items) =&gt; {
   if (Array.isArray(items)) {
     return items.length;
-  } return;
+  }
 };
 &nbsp;
 // Loading API images in the DOM
@@ -265,8 +259,8 @@ const showSeriesList = <span class="fstat-no" title="function not covered" >as</
 <span class="cstat-no" title="statement not covered" >    displayItem.classList.add('card-image1');</span>
 <span class="cstat-no" title="statement not covered" >    displayItem.innerHTML += `</span>
       &lt;div class="card-image" id= ${seriesEntries[entry].id}&gt;
-      &lt;img class="show-image" src="${seriesEntries[entry].image.medium}" alt="${seriesEntries[entry].name}"&gt;
-      &lt;p class="title"&gt;${seriesEntries[entry].name}  &lt;i class="fa fa-heart"&gt;&lt;/i&gt;&lt;span class="display" data-index="${seriesEntries[entry].index}" data-id="${seriesEntries[entry].id}"&gt;0&lt;/span&gt;&lt;/p&gt;
+      &lt;img class="show-image" src="${seriesEntries[entry].image.original}" alt="${seriesEntries[entry].name}"&gt;
+      &lt;p class="title"&gt;${seriesEntries[entry].name}  &lt;i class="fa fa-heart"&gt;&lt;span class="display" data-index="${seriesEntries[entry].index}" data-id="${seriesEntries[entry].id}"&gt;0&lt;/span&gt;&lt;/i&gt;&lt;/p&gt;
       &lt;button type="submit" class="comments"&gt;Comments&lt;/button&gt; 
       &lt;/div&gt; 
     `;
@@ -281,7 +275,7 @@ const showSeriesList = <span class="fstat-no" title="function not covered" >as</
 <span class="cstat-no" title="statement not covered" >  displayLikes.forEach(<span class="fstat-no" title="function not covered" >(l</span>ike) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    like.addEventListener('click', <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      postLikes(e.target.parentNode.parentNode.id);</span>
-<span class="cstat-no" title="statement not covered" >      e.target.nextSibling.textContent = parseInt(e.target.nextSibling.textContent, 10) + 1;</span>
+<span class="cstat-no" title="statement not covered" >      e.target.childNodes[0].textContent = parseInt(e.target.childNodes[0].textContent, 10) + 1;</span>
     });
   });
   const likeItems = <span class="cstat-no" title="statement not covered" >await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IgKDd8EwQi9Xf3fgeQlF/likes');</span>
@@ -299,12 +293,9 @@ const showSeriesList = <span class="fstat-no" title="function not covered" >as</
 <span class="cstat-no" title="statement not covered" >    popupList.classList.add('comment-popup');</span>
     const body = <span class="cstat-no" title="statement not covered" >document.querySelector('body');</span>
 <span class="cstat-no" title="statement not covered" >    popupList.innerHTML = `</span>
-    &lt;div class='popup-headers'&gt;
-    &lt;/div&gt;
-    &lt;span class="close-button close"&gt;&amp;times;&lt;/span&gt;
-    &lt;/div&gt;
+    &lt;p class="close-button close"&gt;&amp;times;&lt;/p&gt;
     &lt;div class='image-header'&gt;
-    &lt;img src= ${result.image.medium}&gt;
+    &lt;img src= ${result.image.medium}&gt;&lt;/div&gt;
     &lt;div class='series-details'&gt;
     &lt;h4&gt;${result.name}&lt;/h4&gt;
     &lt;p&gt;${result.summary}&lt;/p&gt;
@@ -346,7 +337,7 @@ export { showSeriesList, countItems };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-06T02:26:53.779Z
+                at 2022-08-06T08:16:16.111Z
             </div>
         <script src="prettify.js"></script>
         <script>
