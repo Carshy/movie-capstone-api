@@ -1,4 +1,5 @@
 import { fetchList, postLikes } from './showlist.js';
+import commentCounter from './comment-counter.js';
 
 // eslint-disable-next-line consistent-return
 const countItems = (items) => {
@@ -84,8 +85,9 @@ const showSeriesList = async () => {
 
     // Posting Comments Space
     const createComment = (comments) => {
+      const testCounter = commentCounter(comments);
       const commentCount = document.querySelector('.comment-title');
-      commentCount.innerHTML = `(${comments.length})`;
+      commentCount.innerHTML = `(${testCounter})`;
       const commentList = document.querySelector('.comments-holder');
       commentList.innerHTML = '';
       comments.forEach((comment) => {
