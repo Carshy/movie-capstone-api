@@ -279,11 +279,16 @@ body {
     text-decoration: none;
   }
 
+  .list-items1 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
   .card-image1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px 15px;
-    margin-left: 3%;
+    margin-left: 0;
   }
 
   .card-image {
