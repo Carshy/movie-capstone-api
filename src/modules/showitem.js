@@ -1,5 +1,6 @@
 import { fetchList, postLikes } from './showlist.js';
 
+// eslint-disable-next-line consistent-return
 const countItems = (items) => {
   if (Array.isArray(items)) {
     return items.length;
@@ -52,7 +53,7 @@ const showSeriesList = async () => {
     popupList.innerHTML = `
     <p class="close-button close">&times;</p>
     <div class='image-header'>
-    <img src= ${result.image.medium}></div>
+    <img src= ${result.image.original}></div>
     <div class='series-details'>
     <h4>${result.name}</h4>
     <p>${result.summary}</p>
@@ -87,3 +88,4 @@ const showSeriesList = async () => {
   });
 };
 export { showSeriesList, countItems };
+// eslint-disable-next-line consistent-return
