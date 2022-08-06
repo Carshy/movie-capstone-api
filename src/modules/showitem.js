@@ -13,7 +13,6 @@ const showSeriesList = async () => {
   const seriesResults = await fetchList();
   const displaySeries = document.querySelector('.watchlist');
   const seriesEntries = seriesResults.slice(73, 93);
-  console.log(seriesEntries);
   const displayItem = document.createElement('div');
   for (let entry = 0; entry < seriesEntries.length; entry += 1) {
     displayItem.classList.add('card-image1');
@@ -40,16 +39,15 @@ const showSeriesList = async () => {
   });
   const likeItems = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IgKDd8EwQi9Xf3fgeQlF/likes');
   const itemList = await likeItems.json();
-  // itemList.forEach((item) => {
-  //   const likeItem = document.querySelector(`[data-id = '${item.item_id}']`);
-  //   likeItem.innerHTML = `${item.likes}`;
-  // });
+  itemList.forEach((item) => {
+    const likeItem = document.querySelector(`[data-id = '${item.item_id}']`);
+    likeItem.innerHTML = `${item.likes}`;
+  });
 
   // displaying the popup window
   const getPopup = async (id) => {
     const response = await fetch(`https://api.tvmaze.com/shows/${id}`);
     const result = await response.json();
-    console.log(result);
     const popupList = document.createElement('div');
     popupList.classList.add('comment-popup');
     const body = document.querySelector('body');
@@ -144,7 +142,6 @@ const showSeriesList = async () => {
   const commentBtns = document.querySelectorAll('.comments');
   commentBtns.forEach((button) => {
     button.addEventListener('click', (e) => {
-      alert('it will be fine');
       getPopup(e.target.parentNode.id);
       displaySeries.style.filter = 'blur(12px)';
     });
