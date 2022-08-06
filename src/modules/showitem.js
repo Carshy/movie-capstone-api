@@ -57,7 +57,7 @@ const showSeriesList = async () => {
     <p>Ratings(${result.rating.average})</p>
     </div>
     <div class='comment-placeholder'>
-    <p class='comment-title'>Comments</p>
+    <p>Comments<span class='comment-title'></span></p>
     <ul class="comments-holder"></ul>
     </div>
     <form class='comment-section' id='comment-form'>
@@ -78,7 +78,7 @@ const showSeriesList = async () => {
     // Posting Comments Space
     const createComment = (comments) => {
       const commentCount = document.querySelector('.comment-title');
-      commentCount.insertAdjacentHTML('beforeend', `(${comments.length})`);
+      commentCount.innerHTML = `(${comments.length})`;
       const commentList = document.querySelector('.comments-holder');
       commentList.innerHTML = '';
       comments.forEach((comment) => {
@@ -97,8 +97,6 @@ const showSeriesList = async () => {
       const getComment = await response.json();
       createComment(getComment);
     };
-
-    const commentCount = async (arr) => arr.length;
 
     // ************************************
 
