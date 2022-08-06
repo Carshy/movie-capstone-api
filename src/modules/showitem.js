@@ -56,14 +56,14 @@ const showSeriesList = async () => {
     <p>Premiered on: ${result.premiered}</p>
     <p>Ratings(${result.rating.average})</p>
     </div>
-    <div class='comment-top'>
+    <div class='comment-placeholder'>
     <p class='comment-title'>Comments</p>
     </div>
     <form class='comment-section' id='comment-form'>
-    <ul class="comments-container"></ul>
-    <input type='text' class='user-name' id='name' placeholder='Your name'>
-    <textarea type='text' class='user-comment' id='added-comment' placeholder='Your insights'></textarea>
-    <button class='comment-box add-comment' id=${id} type='submit'>Comment</button>
+    <ul class="comments-holder"></ul>
+    <input type='text' class='user-name' id='user-name' placeholder='Your name'>
+    <textarea type='text' class='user-comment' id='add-comment' placeholder='Your insights'></textarea>
+    <button class='comment-box' id=${id} type='submit'>Comment</button>
     </form>
     `;
     body.append(popupList);
@@ -76,43 +76,42 @@ const showSeriesList = async () => {
     });
 
     // Posting Comments Space
-    const addComment = (comments) => {
-      const totalcomments = document.querySelector('.comment-title');
-      totalcomments.insertAdjacentHTML('beforeend', `(${comments.length})`);
-      const commentList = document.querySelector('.comments-container');
+    const createComment = (comments) => {
+      const commentTotal = document.querySelector('.comment-title');
+      commentTotal.insertAdjacentHTML('beforeend', `(${comments.length})`);
+      const commentList = document.querySelector('.comments-holder');
       commentList.innerHTML = '';
       comments.forEach((comment) => {
         commentList.innerHTML += `<li>${comment.creation_date}: ${comment.username}: ${comment.comment}</li>`;
       });
     };
 
-    const commentURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/TDTG3sxn7jY0mfJHgG9a/comments';
+    const apiCommentURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/6Rsc5dWsUkxFOihStX7m/comments';
 
     const fetchComments = async (id) => {
-      const request = new Request(`${commentURL}?item_id=${id}`);
+      const request = new Request(`${apiCommentURL}?item_id=${id}`);
       const response = await fetch(request);
       if (!response.ok) {
         throw new Error('No comments added for this movie');
       }
       const getComment = await response.json();
-      addComment(getComment);
+      createComment(getComment);
     };
 
-    const totalComments = async (arr) => arr.length;
+    const commentTotal = async (arr) => arr.length;
 
     // ************************************
-    const commentsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/TDTG3sxn7jY0mfJHgG9a/comments';
 
     const postComment = async (e) => {
       e.preventDefault();
       const movieID = e.target;
 
-      const name = document.getElementById('name').value.trim();
-      const addComment = document.getElementById('added-comment').value.trim();
+      const name = document.getElementById('user-name').value.trim();
+      const addComment = document.getElementById('add-comment').value.trim();
       const commentForm = document.getElementById('comment-form');
 
       if (name && addComment) {
-        const result = await fetch(commentsURL, {
+        const result = await fetch(apiCommentURL, {
           method: 'POST',
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
@@ -129,8 +128,8 @@ const showSeriesList = async () => {
       }
     };
     fetchComments(id);
-    const submitButton = document.querySelector('.add-comment');
-    submitButton.addEventListener('click', postComment);
+    const submitComment = document.querySelector('.comment-box');
+    submitComment.addEventListener('click', postComment);
   };
   // Comment eventlisters
   const commentBtns = document.querySelectorAll('.comments');
