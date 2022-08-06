@@ -1,4 +1,12 @@
 import { fetchList, postLikes } from './showlist.js';
+
+// eslint-disable-next-line consistent-return
+const countItems = (items) => {
+  if (Array.isArray(items)) {
+    return items.length;
+  }
+};
+
 // Loading API images in the DOM
 const showSeriesList = async () => {
   const seriesResults = await fetchList();
@@ -9,8 +17,8 @@ const showSeriesList = async () => {
     displayItem.classList.add('card-image1');
     displayItem.innerHTML += `
       <div class="card-image" id= ${seriesEntries[entry].id}>
-      <img class="show-image" src="${seriesEntries[entry].image.medium}" alt="${seriesEntries[entry].name}">
-      <p class="title">${seriesEntries[entry].name}  <i class="fa fa-heart"></i><span class="display" data-index="${seriesEntries[entry].index}" data-id="${seriesEntries[entry].id}">0</span></p>
+      <img class="show-image" src="${seriesEntries[entry].image.original}" alt="${seriesEntries[entry].name}">
+      <p class="title">${seriesEntries[entry].name}  <i class="fa fa-heart"><span class="display" data-index="${seriesEntries[entry].index}" data-id="${seriesEntries[entry].id}">0</span></i></p>
       <button type="submit" class="comments">Comments</button> 
       </div> 
     `;
@@ -18,12 +26,14 @@ const showSeriesList = async () => {
   }
 
   const displayItems = document.querySelector('.list-items1');
-  displayItems.textContent = `All Movies (${seriesEntries.length})`;
+  const length = countItems(seriesEntries);
+  displayItems.textContent = `All Movies (${length})`;
+
   const displayLikes = document.querySelectorAll('.fa-heart');
   displayLikes.forEach((like) => {
     like.addEventListener('click', (e) => {
       postLikes(e.target.parentNode.parentNode.id);
-      e.target.nextSibling.textContent = parseInt(e.target.nextSibling.textContent, 10) + 1;
+      e.target.childNodes[0].textContent = parseInt(e.target.childNodes[0].textContent, 10) + 1;
     });
   });
   const likeItems = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IgKDd8EwQi9Xf3fgeQlF/likes');
@@ -41,12 +51,9 @@ const showSeriesList = async () => {
     popupList.classList.add('comment-popup');
     const body = document.querySelector('body');
     popupList.innerHTML = `
-    <div class='popup-headers'>
+    <p class="close-button close">&times;</p>
     <div class='image-header'>
-    <img src= ${result.image.medium}>
-    </div>
-    <span class="close-button close">&times;</span>
-    </div>
+    <img src= ${result.image.original}></div>
     <div class='series-details'>
     <h4>${result.name}</h4>
     <p>${result.summary}</p>
@@ -66,9 +73,9 @@ const showSeriesList = async () => {
     // Close button
     const close = document.querySelector('.close');
     close.addEventListener('click', () => {
-    displaySeries.style.filter = 'blur(0)';
-    const body = document.querySelector('body');
-    body.removeChild(body.lastChild);
+      displaySeries.style.filter = 'blur(0)';
+      const body = document.querySelector('body');
+      body.removeChild(body.lastChild);
     });
   };
   // Comment eventlisters
@@ -80,4 +87,5 @@ const showSeriesList = async () => {
     });
   });
 };
-export default showSeriesList;
+export { showSeriesList, countItems };
+// eslint-disable-next-line consistent-return
