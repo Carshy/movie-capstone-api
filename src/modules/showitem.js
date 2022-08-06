@@ -58,9 +58,9 @@ const showSeriesList = async () => {
     </div>
     <div class='comment-placeholder'>
     <p class='comment-title'>Comments</p>
+    <ul class="comments-holder"></ul>
     </div>
     <form class='comment-section' id='comment-form'>
-    <ul class="comments-holder"></ul>
     <input type='text' class='user-name' id='user-name' placeholder='Your name'>
     <textarea type='text' class='user-comment' id='add-comment' placeholder='Your insights'></textarea>
     <button class='comment-box' id=${id} type='submit'>Comment</button>
@@ -77,8 +77,8 @@ const showSeriesList = async () => {
 
     // Posting Comments Space
     const createComment = (comments) => {
-      const commentTotal = document.querySelector('.comment-title');
-      commentTotal.insertAdjacentHTML('beforeend', `(${comments.length})`);
+      const commentCount = document.querySelector('.comment-title');
+      commentCount.insertAdjacentHTML('beforeend', `(${comments.length})`);
       const commentList = document.querySelector('.comments-holder');
       commentList.innerHTML = '';
       comments.forEach((comment) => {
@@ -98,11 +98,11 @@ const showSeriesList = async () => {
       createComment(getComment);
     };
 
-    const commentTotal = async (arr) => arr.length;
+    const commentCount = async (arr) => arr.length;
 
     // ************************************
 
-    const postComment = async (e) => {
+    const displayComment = async (e) => {
       e.preventDefault();
       const movieID = e.target;
 
@@ -129,7 +129,7 @@ const showSeriesList = async () => {
     };
     fetchComments(id);
     const submitComment = document.querySelector('.comment-box');
-    submitComment.addEventListener('click', postComment);
+    submitComment.addEventListener('click', displayComment);
   };
   // Comment eventlisters
   const commentBtns = document.querySelectorAll('.comments');

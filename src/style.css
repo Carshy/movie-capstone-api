@@ -151,6 +151,7 @@ body {
   padding: 12px;
   background-color: #fff;
   color: #000;
+  margin-top: 19%;
 }
 
 .popup-headers {
@@ -215,4 +216,25 @@ body {
   background-size: 100%;
   width: 50px;
   height: 50px;
+}
+
+.comment-placeholder {
+  margin: auto;
+  gap: 16px;
+  width: 400px;
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 2%;
+}
+
+.comment-placeholder p {
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.comments-holder {
+  list-style-type: none;
 }
