@@ -259,7 +259,8 @@ body {
 
 .comments-holder {
   list-style-type: none;
-=======
+}
+
 @media screen and (min-width: 768px) {
   .nav-section {
     background-color: #8b0000;
