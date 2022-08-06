@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'poppins', sans-serif;
+  font-family: "poppins", sans-serif;
   background-color: #000;
   color: #fff;
   width: 100%;
@@ -233,7 +233,7 @@ body {
 }
 
 .logo {
-  background-image: url('./images/c-s.jpg');
+  background-image: url("./images/c-s.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   width: 50px;
@@ -260,6 +260,7 @@ body {
 .comments-holder {
   list-style-type: none;
 }
+
 @media screen and (min-width: 768px) {
   .nav-section {
     background-color: #8b0000;
@@ -443,7 +444,7 @@ body {
   }
 
   .logo {
-    background-image: url('./images/c-s.jpg');
+    background-image: url("./images/c-s.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     width: 50px;
