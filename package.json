@@ -11,6 +11,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
+    "deploy": "gh-pages -d dist",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack"
@@ -25,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/Carshy/movie-capstone-api/issues"
   },
-  "homepage": "https://github.com/Carshy/movie-capstone-api#readme",
+  "homepage": "https://Carshy.github.io/movie-capstone-api",
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
@@ -51,6 +52,7 @@
   },
   "main": "babel.config.js",
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "jsdom": "^20.0.0"
   }
 }

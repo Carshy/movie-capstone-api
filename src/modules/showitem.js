@@ -12,7 +12,7 @@ const countItems = (items) => {
 const showSeriesList = async () => {
   const seriesResults = await fetchList();
   const displaySeries = document.querySelector('.watchlist');
-  const seriesEntries = seriesResults.slice(73, 93);
+  const seriesEntries = seriesResults.slice(49, 69);
   const displayItem = document.createElement('div');
   for (let entry = 0; entry < seriesEntries.length; entry += 1) {
     displayItem.classList.add('card-image1');
@@ -138,8 +138,9 @@ const showSeriesList = async () => {
     const submitComment = document.querySelector('.comment-box');
     submitComment.addEventListener('click', displayComment);
   };
+
   // Comment eventlisters
-  const commentBtns = document.querySelectorAll('.comments');
+  const commentBtns = document.getElementsByClassName('comments');
   commentBtns.forEach((button) => {
     button.addEventListener('click', (e) => {
       getPopup(e.target.parentNode.id);
