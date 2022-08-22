@@ -4,8 +4,6 @@
 
 The present project is part of the Microverse curriculum Module 2 Block 5. The main objective is putting hands on practice to build a web application using Webpack and JS Modules.
 
-![screenshot](images/photo1.PNG)
-
 
 ## Built With
 
